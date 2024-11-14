@@ -1,0 +1,525 @@
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Démo HubSpot PME - Essai Gratuit | Solutions Marketing & CRM</title>
+
+<meta name="description" content="Découvrez HubSpot gratuitement pendant 14 jours. Accédez à toutes les fonctionnalités premium : CRM, marketing automation, gestion des ventes et plus encore.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hubspot.clonewebsim.ai/pme/demo">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --hubspot-orange: #ff7a59;
+  --hubspot-blue: #2e475d;
+  --text-primary: #33475b;
+  --text-secondary: #516f90;
+  --bg-light: #f5f8fa;
+  --success-green: #00bda5;
+  --transition-base: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  color: var(--text-primary);
+  line-height: 1.6;
+  background: linear-gradient(135deg, #fff, var(--bg-light));
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demo-container {
+  padding-top: 80px;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 2rem 2rem;
+}
+
+.form-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+@media (max-width: 968px) {
+  .form-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.benefits-container {
+  background: var(--hubspot-blue);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  position: sticky;
+  top: 100px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: var(--transition-base);
+}
+
+.form-input:focus {
+  border-color: var(--hubspot-orange);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,122,89,0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--hubspot-orange);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.submit-btn:hover {
+  background: #f26644;
+  transform: translateY(-2px);
+}
+
+.benefits-list {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  transition: var(--transition-base);
+}
+
+.benefit-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(5px);
+}
+
+.benefit-icon {
+  margin-right: 1rem;
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--hubspot-orange);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.testimonials {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: var(--transition-base);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.success-message {
+  display: none;
+  background: var(--success-green);
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Accessibility Styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--hubspot-orange);
+  color: white;
+  padding: 8px;
+  z-index: 1001;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus {
+  outline: 3px solid var(--hubspot-orange);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+/* Password strength indicator */
+.password-strength {
+  height: 4px;
+  background: #ddd;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Passer au contenu principal</a>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav" role="navigation">
+  <a href="/pme">
+    <svg width="100" height="30" fill="var(--hubspot-orange)" role="img" aria-label="Logo HubSpot">
+      <path d="M20 10h5v10h-5zm10 0h5v10h-5zm10 0h5v10h-5z"/>
+    </svg>
+  </a>
+  
+  <a href="tel:+33100000000" style="text-decoration: none; color: var(--hubspot-blue)">
+    <strong>Besoin d'aide ? 01 00 00 00 00</strong>
+  </a>
+</nav>
+
+<main id="main-content" class="demo-container">
+  <h1 style="text-align: center; color: var(--hubspot-blue); margin-bottom: 1rem">
+    Commencez votre essai gratuit de HubSpot
+  </h1>
+  <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem">
+    Accédez à toutes les fonctionnalités premium pendant 14 jours, sans engagement
+  </p>
+
+  <div class="form-section">
+    <div class="form-container fade-in">
+      <form id="demoForm" novalidate>
+        <div class="form-group">
+          <label for="company" class="form-label">Nom de l'entreprise*</label>
+          <input type="text" id="company" class="form-input" required>
+          <div class="error-message" id="companyError">Veuillez saisir le nom de votre entreprise</div>
+        </div>
+
+        <div class="form-group">
+          <label for="name" class="form-label">Nom complet*</label>
+          <input type="text" id="name" class="form-input" required>
+          <div class="error-message" id="nameError">Veuillez saisir votre nom</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email professionnel*</label>
+          <input type="email" id="email" class="form-input" required>
+          <div class="error-message" id="emailError">Veuillez saisir une adresse email valide</div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Mot de passe*</label>
+          <input type="password" id="password" class="form-input" required
+                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
+          <div class="password-strength">
+            <div class="password-strength-bar" id="passwordStrength"></div>
+          </div>
+          <div class="error-message" id="passwordError">
+            Le mot de passe doit contenir au moins 8 caractères, une lettre, un chiffre et un caractère spécial
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="form-label">Téléphone</label>
+          <input type="tel" id="phone" class="form-input" pattern="^(\+33|0)[1-9][0-9]{8}$">
+          <div class="error-message" id="phoneError">Veuillez saisir un numéro de téléphone valide</div>
+        </div>
+
+        <button type="submit" class="submit-btn">Démarrer mon essai gratuit</button>
+      </form>
+
+      <div class="success-message" id="successMessage">
+        <h3>🎉 Félicitations !</h3>
+        <p>Votre compte a été créé avec succès. Vous allez recevoir un email de confirmation.</p>
+      </div>
+    </div>
+
+    <div class="benefits-container fade-in">
+      <h2>Ce qui est inclus dans votre essai</h2>
+      <ul class="benefits-list">
+        <li class="benefit-item">
+          <span class="benefit-icon">💼</span>
+          <span>CRM complet et illimité</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">📊</span>
+          <span>Marketing Hub Premium</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">💫</span>
+          <span>Sales Hub Professional</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">🎯</span>
+          <span>Automatisations marketing</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">📈</span>
+          <span>Analyses et rapports avancés</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">🤝</span>
+          <span>Support premium prioritaire</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="testimonials">
+    <div class="testimonial-card fade-in">
+      <p>"HubSpot a transformé notre approche marketing. En 6 mois, nous avons doublé nos leads qualifiés."</p>
+      <p><strong>Marie D.</strong> - Directrice Marketing</p>
+    </div>
+    <div class="testimonial-card fade-in">
+      <p>"L'interface est intuitive et le support est exceptionnel. Un vrai game-changer pour notre PME."</p>
+      <p><strong>Thomas L.</strong> - CEO</p>
+    </div>
+    <div class="testimonial-card fade-in">
+      <p>"Le ROI est évident. HubSpot nous fait gagner un temps précieux sur toutes nos opérations."</p>
+      <p><strong>Sophie M.</strong> - Responsable Commercial</p>
+    </div>
+  </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('demoForm');
+  const successMessage = document.getElementById('successMessage');
+  const passwordInput = document.getElementById('password');
+  const passwordStrength = document.getElementById('passwordStrength');
+  const progressBar = document.getElementById('progressBar');
+
+  // Form validation and submission
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let isValid = true;
+    
+    // Validate company
+    const company = document.getElementById('company');
+    if (!company.value.trim()) {
+      showError('company', 'Veuillez saisir le nom de votre entreprise');
+      isValid = false;
+    }
+
+    // Validate name
+    const name = document.getElementById('name');
+    if (!name.value.trim()) {
+      showError('name', 'Veuillez saisir votre nom');
+      isValid = false;
+    }
+
+    // Validate email
+    const email = document.getElementById('email');
+    if (!isValidEmail(email.value)) {
+      showError('email', 'Veuillez saisir une adresse email valide');
+      isValid = false;
+    }
+
+    // Validate password
+    if (!isValidPassword(passwordInput.value)) {
+      showError('password', 'Le mot de passe ne répond pas aux critères de sécurité');
+      isValid = false;
+    }
+
+    // Validate phone (optional)
+    const phone = document.getElementById('phone');
+    if (phone.value && !isValidPhone(phone.value)) {
+      showError('phone', 'Veuillez saisir un numéro de téléphone valide');
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Simulate form submission
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+      
+      // Redirect after 3 seconds
+      setTimeout(() => {
+        window.location.href = 'https://hubspot.clonewebsim.ai/pme/onboarding';
+      }, 3000);
+    }
+  });
+
+  // Password strength checker
+  passwordInput.addEventListener('input', function(e) {
+    const password = e.target.value;
+    const strength = checkPasswordStrength(password);
+    updatePasswordStrengthIndicator(strength);
+  });
+
+  // Scroll progress bar
+  window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    progressBar.style.transform = `scaleX(${scrolled / 100})`;
+  });
+
+  // Intersection Observer for animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(20px)';
+    observer.observe(el);
+  });
+
+  // Helper functions
+  function showError(fieldId, message) {
+    const errorDiv = document.getElementById(`${fieldId}Error`);
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    document.getElementById(fieldId).classList.add('error');
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function isValidPhone(phone) {
+    return /^(\+33|0)[1-9][0-9]{8}$/.test(phone);
+  }
+
+  function isValidPassword(password) {
+    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password);
+  }
+
+  function checkPasswordStrength(password) {
+    let strength = 0;
+    if (password.length >= 8) strength += 25;
+    if (password.match(/[A-Z]/)) strength += 25;
+    if (password.match(/[0-9]/)) strength += 25;
+    if (password.match(/[@$!%*#?&]/)) strength += 25;
+    return strength;
+  }
+
+  function updatePasswordStrengthIndicator(strength) {
+    passwordStrength.style.width = `${strength}%`;
+    if (strength < 50) {
+      passwordStrength.style.backgroundColor = '#dc3545';
+    } else if (strength < 75) {
+      passwordStrength.style.backgroundColor = '#ffc107';
+    } else {
+      passwordStrength.style.backgroundColor = '#28a745';
+    }
+  }
+
+  // Clear error messages on input
+  document.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('input', function() {
+      const errorDiv = document.getElementById(`${this.id}Error`);
+      errorDiv.style.display = 'none';
+      this.classList.remove('error');
+    });
+  });
+
+  // Performance monitoring
+  if ('PerformanceObserver' in window) {
+    const observer = new PerformanceObserver((list) => {
+      list.getEntries().forEach((entry) => {
+        console.log(`${entry.name}: ${entry.startTime}ms`);
+      });
+    });
+    observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+  }
+});
+</script>
+
+</body>
+</html>

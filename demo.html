@@ -1,0 +1,456 @@
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Démo HubSpot PME - Découvrez nos fonctionnalités en vidéo</title>
+<meta name="description" content="Découvrez en vidéo comment HubSpot peut transformer votre PME. Démonstration interactive de notre CRM, outils marketing et solutions de vente.">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --hubspot-orange: #ff7a59;
+  --hubspot-blue: #2e475d;
+  --text-primary: #33475b;
+  --text-secondary: #516f90;
+  --bg-light: #f5f8fa;
+  --transition-base: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-light);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 5%;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--hubspot-orange);
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.nav-links a:hover {
+  color: var(--hubspot-orange);
+}
+
+.demo-container {
+  max-width: 1200px;
+  margin: 100px auto 0;
+  padding: 2rem;
+}
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.video-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: var(--transition-base);
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.video-thumbnail {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: var(--bg-light);
+  cursor: pointer;
+}
+
+.video-thumbnail::before {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: var(--hubspot-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  opacity: 0.9;
+  transition: var(--transition-base);
+}
+
+.video-thumbnail:hover::before {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+}
+
+.video-info {
+  padding: 1.5rem;
+}
+
+.video-info h3 {
+  color: var(--hubspot-blue);
+  margin-bottom: 0.5rem;
+}
+
+.video-info p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.close-modal {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.video-player {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  margin-top: 4rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--hubspot-orange);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: var(--transition-base);
+  margin-top: 2rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255,122,89,0.3);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .demo-container {
+    padding: 1rem;
+  }
+  
+  .video-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.feature {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: var(--bg-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="accueil.html" class="logo">HubSpot</a>
+  <div class="nav-links">
+    <a href="ressources.html">ressources</a>
+    <a href="accueil.html">Tarifs</a>
+    <a href="découverte.html" class="cta-button">Essai Gratuit</a>
+  </div>
+</nav>
+
+<div class="demo-container">
+  <h1 style="text-align: center; margin-bottom: 2rem; color: var(--hubspot-blue);">Découvrez HubSpot en action</h1>
+  
+  <div class="video-gallery">
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=mZNO_ZnHIMk">
+      <div class="video-thumbnail" data-video="https://www.youtube.com/watch?v=mZNO_ZnHIMk">
+      </div>
+      <div class="video-info">
+        <h3>Vue d'ensemble de HubSpot</h3>
+        <p>Découvrez comment HubSpot peut transformer votre entreprise en 5 minutes</p>
+      </div>
+    </div></a>
+    
+    <div>
+      <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=mZNO_ZnHIMk">
+      <div class="video-thumbnail">
+        
+      </div>
+      <div class="video-info">
+        <h3>CRM et Automatisation</h3>
+        <p>Gérez vos relations clients et automatisez vos processus</p>
+      </div></div>
+    </div></a>
+    
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=mZNO_ZnHIMk">
+      <div class="video-thumbnail">
+      </div>
+      <div class="video-info">
+        <h3>Marketing Hub</h3>
+        <p>Créez des campagnes marketing qui convertissent</p>
+      </div>
+    </div></a>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <h3>Analytics en temps réel</h3>
+      <p>Suivez vos performances marketing et commerciales en direct</p>
+    </div>
+    
+    <div class="feature">
+      <div class="feature-icon">🤝</div>
+      <h3>Support 24/7</h3>
+      <p>Une équipe d'experts à votre service</p>
+    </div>
+    
+    <div class="feature">
+      <div class="feature-icon">🚀</div>
+      <h3>Démarrage rapide</h3>
+      <p>Opérationnel en moins de 24h</p>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Prêt à transformer votre entreprise ?</h2>
+    <p>Rejoignez plus de 150,000 entreprises qui font confiance à HubSpot</p>
+    <a href="essai.html" class="cta-button">Commencer gratuitement</a>
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <iframe class="video-player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Video modal functionality
+  const modal = document.querySelector('.modal');
+  const videoPlayer = document.querySelector('.video-player');
+  const closeModal = document.querySelector('.close-modal');
+  
+  document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+      const videoUrl = thumbnail.dataset.video;
+      videoPlayer.src = videoUrl;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  
+  closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+    videoPlayer.src = '';
+    document.body.style.overflow = 'auto';
+  });
+  
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      videoPlayer.src = '';
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Escape key to close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      modal.classList.remove('active');
+      videoPlayer.src = '';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Intersection Observer for animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.video-card, .feature').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.createElement('button');
+  navToggle.className = 'nav-toggle';
+  navToggle.innerHTML = '☰';
+  navToggle.style.cssText = `
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--hubspot-blue);
+    cursor: pointer;
+    padding: 0.5rem;
+    
+    @media (max-width: 768px) {
+      display: block;
+    }
+  `;
+
+  const nav = document.querySelector('.nav');
+  nav.appendChild(navToggle);
+
+  navToggle.addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Add smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Performance monitoring
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const timing = performance.timing;
+      const interactive = timing.domInteractive - timing.navigationStart;
+      const dcl = timing.domContentLoadedEventEnd - timing.navigationStart;
+      const complete = timing.loadEventEnd - timing.navigationStart;
+      
+      console.log('Interactive time:', interactive);
+      console.log('DOMContentLoaded time:', dcl);
+      console.log('Complete time:', complete);
+    }, 0);
+  });
+});
+</script>
+
+</body></html>

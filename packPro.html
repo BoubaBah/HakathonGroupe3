@@ -1,0 +1,442 @@
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HubSpot Professional | Solutions Marketing et Vente pour PME Ambitieuses</title>
+<meta name="description" content="Découvrez HubSpot Professional: automatisation marketing avancée, reporting personnalisé et outils CRM premium pour PME en croissance. Essai gratuit disponible.">
+
+<!-- SEO Tags -->
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hubspot.clonewebsim.ai/pme/professional">
+<meta property="og:title" content="HubSpot Professional | Solutions Avancées pour PME">
+<meta property="og:description" content="Automatisation marketing, CRM avancé et outils de vente premium pour PME ambitieuses">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hubspot.clonewebsim.ai/pme/professional">
+
+<style>
+:root {
+  --primary: #ff7a59;
+  --secondary: #2e475d;
+  --text-dark: #33475b;
+  --text-light: #516f90;
+  --bg-light: #f5f8fa;
+  --success: #00bda5;
+  --warning: #ffd012;
+  --error: #ff5c35;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+.header {
+  background: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero {
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--bg-light) 100%);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-table {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  margin: 4rem auto;
+  max-width: 900px;
+}
+
+.pricing-header {
+  background: var(--secondary);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+}
+
+.pricing-features {
+  padding: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--bg-light);
+}
+
+.feature-item svg {
+  margin-right: 1rem;
+  color: var(--success);
+}
+
+.cta-section {
+  text-align: center;
+  padding: 4rem 0;
+  background: var(--bg-light);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #ff8f73;
+  transform: translateY(-2px);
+}
+
+.testimonials {
+  padding: 4rem 0;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin: 2rem 0;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.customer-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  background: var(--bg-light);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-table {
+    margin: 2rem;
+  }
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Performance Optimizations */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Passer au contenu principal</a>
+
+<header class="header">
+  <div class="container">
+    <nav role="navigation">
+      <a href="accueil.html" aria-label="Retour à l'accueil">
+        <svg width="120" height="35" viewBox="0 0 120 35" fill="var(--primary)">
+          <path d="M10 10h10v15h-10z M30 10h10v15h-10z M50 10h10v15h-10z"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="hero">
+    <div class="container">
+      <h1>HubSpot Professional</h1>
+      <p>Des outils marketing et vente avancés pour propulser votre croissance</p>
+      <a href="accueil.html" class="btn btn-primary">Voir les tarifs</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <article class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Automation Marketing</h3>
+          <p>Automatisez vos campagnes marketing et nurturez vos prospects avec des workflows personnalisés.</p>
+        </article>
+
+        <article class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5v-2h7v2zm7-4H5v-2h14v2zm0-4H5V7h14v2z"/>
+            </svg>
+          </div>
+          <h3>Reporting Avancé</h3>
+          <p>Créez des tableaux de bord personnalisés et suivez vos KPIs en temps réel.</p>
+        </article>
+
+        <article class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+            </svg>
+          </div>
+          <h3>Email Marketing Pro</h3>
+          <p>Créez et testez des campagnes email sophistiquées avec A/B testing et personnalisation avancée.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="pricing-table">
+        <div class="pricing-header">
+          <h2>Professional</h2>
+          <p class="price">890€ /mois</p>
+        </div>
+        <div class="pricing-features">
+          <div class="feature-item">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--success)">
+              <path d="M8 15L3 10l1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+            </svg>
+            <span>Automation marketing illimitée</span>
+          </div>
+          <div class="feature-item">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--success)">
+              <path d="M8 15L3 10l1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+            </svg>
+            <span>Reporting personnalisé</span>
+          </div>
+          <div class="feature-item">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--success)">
+              <path d="M8 15L3 10l1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+            </svg>
+            <span>Support prioritaire 24/7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2>Ils nous font confiance</h2>
+      <div class="testimonial-card fade-in">
+        <blockquote>
+          "HubSpot Professional nous a permis de multiplier par 3 nos leads qualifiés en seulement 6 mois. L'automatisation des processus nous fait gagner un temps précieux."
+        </blockquote>
+        <div class="customer-info">
+          <div class="customer-avatar"></div>
+          <div>
+            <strong>Sophie Martin</strong>
+            <p>Directrice Marketing, TechSolutions France</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Prêt à passer au niveau supérieur ?</h2>
+      <p>Essayez HubSpot Professional gratuitement pendant 14 jours</p>
+      <a href="essai.html" class="btn btn-primary">Démarrer l'essai gratuit</a>
+    </div>
+  </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Lazy loading images
+  document.querySelectorAll('.lazy-image').forEach(img => {
+    const imageObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.src = entry.target.dataset.src;
+          entry.target.classList.add('loaded');
+          imageObserver.unobserve(entry.target);
+        }
+      });
+    });
+    
+    imageObserver.observe(img);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Add structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "HubSpot Professional",
+    "description": "Solution marketing et vente avancée pour PME",
+    "brand": {
+      "@type": "Brand",
+      "name": "HubSpot"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "890.00",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(structuredData);
+  document.head.appendChild(script);
+});
+</script>
+
+</body>
+</html>

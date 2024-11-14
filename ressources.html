@@ -1,0 +1,572 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ressources PME | HubSpot - Guides, Templates et Outils Gratuits</title>
+<meta name="description" content="Accédez à notre bibliothèque complète de ressources pour PME : guides pratiques, templates marketing, études de cas et outils gratuits pour développer votre entreprise.">
+<meta name="keywords" content="ressources PME, guides marketing, templates gratuits, outils PME, études de cas, croissance entreprise">
+<meta property="og:title" content="Ressources PME | HubSpot - Guides, Templates et Outils Gratuits">
+<meta property="og:description" content="Accédez à notre bibliothèque complète de ressources pour PME : guides pratiques, templates marketing, études de cas et outils gratuits.">
+<meta property="og:image" content="https://hubspot.clonewebsim.ai/pme/resources/og-image.jpg">
+<meta property="og:url" content="https://hubspot.clonewebsim.ai/pme/resources">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hubspot.clonewebsim.ai/pme/resources">
+
+<style>
+/* Base styles from previous response... */
+
+.resources-hero {
+  background: linear-gradient(135deg, #fff5f2, #fff);
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+}
+
+.resources-hero h1 {
+  font-size: 3.5rem;
+  color: var(--hubspot-blue);
+  margin-bottom: 1.5rem;
+}
+
+.resources-hero p {
+  font-size: 1.2rem;
+  color: #516f90;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.resource-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--hubspot-orange);
+  border-radius: 25px;
+  background: transparent;
+  color: var(--hubspot-orange);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background: var(--hubspot-orange);
+  color: white;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.resource-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resource-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.resource-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-type {
+  text-transform: uppercase;
+  color: var(--hubspot-orange);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.resource-title {
+  font-size: 1.2rem;
+  color: var(--hubspot-blue);
+  margin-bottom: 1rem;
+}
+
+.resource-description {
+  color: #516f90;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.resource-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid #eee;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: 3px solid var(--hubspot-orange);
+  outline-offset: 2px;
+  border-color: var(--hubspot-orange);
+  box-shadow: 0 0 0 3px rgba(255,122,89,0.2);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.featured-resources {
+  background: linear-gradient(135deg, #f6f9fc, #fff);
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.featured-resources h2 {
+  text-align: center;
+  color: var(--hubspot-blue);
+  margin-bottom: 2rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.resource-stats {
+  display: flex;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.resource-stats i {
+  color: var(--hubspot-orange);
+}
+
+.loading-skeleton {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-size: 1000px 100%;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.resource-badge {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.badge-new {
+  background: #e8f7ff;
+  color: #0077cc;
+}
+
+.badge-popular {
+  background: #fff0e6;
+  color: #ff6b00;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (max-width: 768px) {
+  .resources-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .resource-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-button {
+    margin: 0.25rem 0;
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Ressources PME | HubSpot",
+  "description": "Bibliothèque de ressources pour PME : guides pratiques, templates marketing, études de cas et outils gratuits.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "HubSpot",
+    "logo": "https://hubspot.clonewebsim.ai/logo.png"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- Navigation from previous response -->
+
+<section class="resources-hero">
+  <h1>Ressources pour PME</h1>
+  <p>Découvrez nos guides, templates et outils gratuits pour développer votre entreprise</p>
+  
+  <div class="search-container">
+    <input type="search" class="search-input" placeholder="Rechercher une ressource..." aria-label="Rechercher une ressource">
+    <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </div>
+
+  <div class="resource-filters">
+    <button class="filter-button active" data-filter="all">Tout</button>
+    <button class="filter-button" data-filter="guides">Guides</button>
+    <button class="filter-button" data-filter="templates">Templates</button>
+    <button class="filter-button" data-filter="tools">Outils</button>
+    <button class="filter-button" data-filter="cases">Études de cas</button>
+  </div>
+</section>
+
+<section class="featured-resources">
+  <h2>Ressources à la une</h2>
+  <div class="featured-grid">
+    <article class="resource-card">
+      <div class="resource-image" style="background-image: url('https://cdn2.hubspot.net/hub/53/file-23115418-jpg/blog/images/social-media-marketing-guide.jpg')"></div>
+      <div class="resource-content">
+        <span class="resource-type">GUIDE</span>
+        <span class="resource-badge badge-new">NOUVEAU</span>
+        <h3 class="resource-title">Guide Complet du Marketing Digital pour PME</h3>
+        <p class="resource-description">Apprenez les fondamentaux du marketing digital et créez une stratégie efficace pour votre entreprise.</p>
+        <div class="resource-meta">
+          <div class="resource-stats">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            2.5k vues
+          </div>
+          <a href="/download/marketing-digital-guide" class="cta-button">Télécharger</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card">
+      <div class="resource-image" style="background-image: url('https://cdn2.hubspot.net/hub/53/file-23115419-jpg/blog/images/email-templates.jpg')"></div>
+      <div class="resource-content">
+        <span class="resource-type">TEMPLATE</span>
+        <span class="resource-badge badge-popular">POPULAIRE</span>
+        <h3 class="resource-title">Pack de Templates Email Marketing</h3>
+        <p class="resource-description">15 templates d'emails professionnels personnalisables pour vos campagnes marketing.</p>
+        <div class="resource-meta">
+          <div class="resource-stats">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            4.2k vues
+          </div>
+          <a href="/download/email-templates" class="cta-button">Télécharger</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card">
+      <div class="resource-image" style="background-image: url('https://cdn2.hubspot.net/hub/53/file-23115420-jpg/blog/images/roi-calculator.jpg')"></div>
+      <div class="resource-content">
+        <span class="resource-type">OUTIL</span>
+        <h3 class="resource-title">Calculateur de ROI Marketing</h3>
+        <p class="resource-description">Évaluez le retour sur investissement de vos campagnes marketing en quelques clics.</p>
+        <div class="resource-meta">
+          <div class="resource-stats">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            3.1k vues
+          </div>
+          <a href="/tools/roi-calculator" class="cta-button">Accéder</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="resources-grid" id="allResources">
+  <!-- Resources will be dynamically populated here -->
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const resources = [
+    {
+      type: 'guide',
+      title: 'Guide de l\'Automatisation Marketing',
+      description: 'Automatisez vos processus marketing pour gagner en efficacité.',
+      image: 'automation-guide.jpg',
+      views: '1.8k',
+      link: '/download/automation-guide',
+      isNew: true
+    },
+    {
+      type: 'template',
+      title: 'Templates de Publication Réseaux Sociaux',
+      description: '30 templates pour vos posts sur les réseaux sociaux.',
+      image: 'social-templates.jpg',
+      views: '3.4k',
+      link: '/download/social-templates',
+      isPopular: true
+    },
+  ];
+
+  const filterButtons = document.querySelectorAll('.filter-button');
+  const resourcesGrid = document.getElementById('allResources');
+
+  function filterResources(filter) {
+    const filteredResources = filter === 'all' 
+      ? resources 
+      : resources.filter(resource => resource.type === filter);
+    
+    renderResources(filteredResources);
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      filterResources(button.dataset.filter);
+    });
+  });
+
+  const searchInput = document.querySelector('.search-input');
+  
+  searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const filteredResources = resources.filter(resource => 
+      resource.title.toLowerCase().includes(searchTerm) ||
+      resource.description.toLowerCase().includes(searchTerm)
+    );
+    renderResources(filteredResources);
+  });
+
+  function renderResources(resourcesToRender) {
+    resourcesGrid.innerHTML = Array(6).fill().map(() => `
+      <article class="resource-card skeleton">
+        <div class="resource-image skeleton"></div>
+        <div class="resource-content">
+          <div class="skeleton" style="width: 30%; height: 20px; margin-bottom: 10px;"></div>
+          <div class="skeleton" style="width: 90%; height: 24px; margin-bottom: 15px;"></div>
+          <div class="skeleton" style="width: 100%; height: 60px;"></div>
+        </div>
+      </article>
+    `).join('');
+
+    setTimeout(() => {
+      resourcesGrid.innerHTML = resourcesToRender.map(resource => `
+        <article class="resource-card">
+          <div class="resource-image" style="background-image: url('${resource.image}')"></div>
+          <div class="resource-content">
+            <span class="resource-type">${resource.type.toUpperCase()}</span>
+            ${resource.isNew ? '<span class="resource-badge badge-new">NOUVEAU</span>' : ''}
+            ${resource.isPopular ? '<span class="resource-badge badge-popular">POPULAIRE</span>' : ''}
+            <h3 class="resource-title">${resource.title}</h3>
+            <p class="resource-description">${resource.description}</p>
+            <div class="resource-meta">
+              <div class="resource-stats">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                ${resource.views} vues
+              </div>
+              <a href="${resource.link}" class="cta-button">
+                ${resource.type === 'tool' ? 'Accéder' : 'Télécharger'}
+              </a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }, 500);
+  }
+
+  renderResources(resources);
+
+  const UXEnhancements = {
+    init() {
+      this.setupToasts();
+      this.setupInfiniteScroll();
+      this.setupKeyboardNavigation();
+      this.setupLoadingStates();
+    },
+
+    setupToasts() {
+      const showToast = (message, type = 'success') => {
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 20 20">
+            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293l-4-4a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L9 7.414l3.293 3.293a1 1 0 001.414-1.414z"/>
+          </svg>
+          ${message}
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.classList.add('show'), 100);
+        setTimeout(() => {
+          toast.classList.remove('show');
+          setTimeout(() => toast.remove(), 300);
+        }, 3000);
+      };
+      
+      window.showToast = showToast;
+    },
+
+    setupInfiniteScroll() {
+      const loadMoreResources = () => {
+        // Implement infinite scroll logic here
+        console.log('Loading more resources...');
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          loadMoreResources();
+        }
+      });
+      
+      const gridElement = document.querySelector('.resources-grid');
+      if (gridElement) {
+        observer.observe(gridElement);
+      }
+    },
+
+    setupKeyboardNavigation() {
+      const cards = document.querySelectorAll('.resource-card');
+      cards.forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            const ctaButton = card.querySelector('.cta-button');
+            if (ctaButton) {
+              ctaButton.click();
+            }
+          }
+        });
+      });
+    },
+
+    setupLoadingStates() {
+      const buttons = document.querySelectorAll('.cta-button');
+      buttons.forEach(button => {
+        button.addEventListener('click', async (e) => {
+          const originalText = button.textContent;
+          button.innerHTML = `
+            <svg class="loading-spinner" width="20" height="20" viewBox="0 0 50 50">
+              <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
+            </svg>
+            Chargement...
+          `;
+          button.disabled = true;
+
+          // Simulate loading
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          button.innerHTML = originalText;
+          button.disabled = false;
+        });
+      });
+    }
+  };
+
+  UXEnhancements.init();
+});
+</script>
+
+</body></html>

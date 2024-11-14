@@ -1,0 +1,879 @@
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions HubSpot PME | CRM, Marketing & Ventes pour PME</title>
+<meta name="description" content="Solutions HubSpot dédiées aux PME : CRM gratuit, outils marketing et commerciaux pour développer votre activité. Interface intuitive, support 24/7 et démarrage rapide.">
+<meta name="keywords" content="HubSpot PME, CRM PME, marketing automation PME, logiciel PME, solutions entreprises">
+
+<link rel="canonical" href="https://hubspot.clonewebsim.ai/pme">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Solutions HubSpot pour PME | Croissance et Performance">
+<meta property="og:description" content="Découvrez les solutions HubSpot conçues pour les PME : CRM, marketing et ventes dans une plateforme unifiée">
+<meta property="og:image" content="https://hubspot.clonewebsim.ai/images/pme-hero.jpg">
+<meta property="og:url" content="https://hubspot.clonewebsim.ai/pme">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+<link rel="preload" href="main.js" as="script">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --hubspot-orange: #ff7a59;
+  --hubspot-blue: #2e475d;
+  --text-primary: #33475b;
+  --text-secondary: #516f90;
+  --bg-light: #f5f8fa;
+  --transition-base: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 1rem 5%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
+
+.nav.hidden {
+  transform: translateY(-100%);
+}
+
+.scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--hubspot-orange);
+  transition: width 0.1s ease;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--bg-light);
+}
+
+.menu-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--hubspot-blue);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background: white;
+    width: 300px;
+    height: calc(100vh - 70px);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    width: 100%;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--hubspot-orange);
+  }
+
+  .nav-links .btn-trial {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.landing-hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff, #f5f8fa, #e5f0f8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-content {
+  max-width: 800px;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.landing-title {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.landing-subtitle {
+  font-size: 1.6rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: var(--text-secondary);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 15s infinite;
+}
+
+.shape:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  background: var(--hubspot-orange);
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  background: var(--hubspot-blue);
+  top: 40%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.shape:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  background: var(--hubspot-orange);
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.cta-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  background: linear-gradient(45deg, var(--hubspot-orange), #ff9f59);
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255,122,89,0.3);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeIn 0.8s ease 1s forwards;
+}
+
+.scroll-arrow {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--hubspot-orange);
+  border-radius: 50%;
+  position: relative;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--hubspot-orange);
+  border-bottom: 2px solid var(--hubspot-orange);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.features {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 2rem;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: var(--hubspot-blue);
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+}
+
+.testimonials {
+  padding: 6rem 2rem;
+  background: var(--bg-light);
+}
+
+.testimonial-slider {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin: 1rem;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.customer-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--bg-light);
+}
+
+.footer {
+  background: #2c3e50;
+  color: #bdc3c7; 
+  padding: 4rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col h4 {
+  color: #ffffff; 
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+  color: #bdc3c7; 
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.footer-col ul li a:hover {
+  color: var(--hubspot-orange); 
+  text-decoration: underline;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .cta-group {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Accessibilité */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--hubspot-orange);
+  color: white;
+  padding: 8px;
+  z-index: 1001;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--hubspot-orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+:focus {
+  outline: 3px solid var(--hubspot-orange);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255,122,89,0.5);
+}
+
+[role="button"],
+button {
+  cursor: pointer;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Performance Optimizations */
+.lazy-image {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.toast {
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.company-intro h3 {
+  font-size: 2.5rem;
+  color: var(--hubspot-orange);
+  margin-bottom: 0.5rem;
+}
+
+.company-intro p {
+  color: var(--text-secondary);
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Passer au contenu principal</a>
+
+<nav class="nav" role="navigation">
+  <svg width="100" height="30" fill="var(--hubspot-orange)" role="img" aria-label="Logo HubSpot">
+    <path d="M20 10h5v10h-5zm10 0h5v10h-5zm10 0h5v10h-5z"/>
+  </svg>
+  
+  <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+  </button>
+
+  <div class="nav-links">
+    <a href="#features">Fonctionnalités</a>
+    <a href="#testimonials">Témoignages</a>
+    <a href="https://hubspot.clonewebsim.ai/pme/demo" class="btn-trial">Essai Gratuit</a>
+  </div>
+  <div class="scroll-progress"></div>
+</nav>
+
+<main id="main-content">
+  <section class="landing-hero">
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    
+    <div class="landing-content">
+      <h1 class="landing-title">HubSpot élargit son horizon avec une offre dédiée PME</h1>
+      <p class="landing-subtitle">Découvrez notre nouvelle solution sur mesure pour les petites et moyennes entreprises</p>
+      <button class="cta-btn">Explorer l'offre PME</button>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="features-grid">
+      <article class="feature-card fade-in">
+        <div class="feature-icon">🚀</div>
+        <h3>Solution Adaptée PME</h3>
+        <p>Une offre spécialement conçue pour répondre aux besoins spécifiques des PME françaises.</p>
+      </article>
+      
+      <article class="feature-card fade-in">
+        <div class="feature-icon">💡</div>
+        <h3>Simplicité d'Utilisation</h3>
+        <p>Interface intuitive et prise en main rapide pour une productivité immédiate.</p>
+      </article>
+      
+      <article class="feature-card fade-in">
+        <div class="feature-icon">🤝</div>
+        <h3>Accompagnement Local</h3>
+        <p>Support en français et équipe dédiée aux PME pour un suivi personnalisé.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="company-intro" style="padding: 6rem 2rem; background: var(--bg-light);">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h2 style="color: var(--hubspot-blue); margin-bottom: 2rem;">Notre Vision</h2>
+      <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 2rem;">
+        Depuis plus de 15 ans, HubSpot accompagne les entreprises dans leur transformation digitale. Aujourd'hui, nous franchissons une nouvelle étape avec une offre sur mesure pour les PME françaises.
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 4rem;">
+        <div>
+          <h3>15+</h3>
+          <p>Années d'expertise</p>
+        </div>
+        <div>
+          <h3>150k+</h3>
+          <p>Clients satisfaits</p>
+        </div>
+        <div>
+          <h3>100%</h3>
+          <p>Support en français</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="testimonial-slider">
+      <div class="testimonial-card fade-in">
+        <blockquote>
+          "Grâce à HubSpot, nous avons augmenté nos ventes de 50% en 6 mois. L'interface est intuitive et le support est excellent."
+        </blockquote>
+        <div class="customer-info">
+          <div class="customer-avatar"></div>
+          <div>
+            <strong>Marie Dupont</strong>
+            <p>Directrice Marketing, Tech Solutions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Produits</h4>
+      <ul>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/crm">CRM</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/marketing">Marketing Hub</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/sales">Sales Hub</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/service">Service Hub</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/blog">Blog</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/academy">Academy</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/community">Communauté</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/support">Support</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <ul>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/about">À propos</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/careers">Carrières</a></li>
+        <li><a href="https://hubspot.clonewebsim.ai/pme/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-container" role="alert" aria-live="polite"></div>
+
+<script defer>
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.lazy-image').forEach(img => {
+    const imageObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.src = entry.target.dataset.src;
+          entry.target.classList.add('loaded');
+          imageObserver.unobserve(entry.target);
+        }
+      });
+    });
+    
+    imageObserver.observe(img);
+  });
+
+  const showToast = (message, type = 'info') => {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    document.querySelector('.toast-container').appendChild(toast);
+    
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  };
+
+  const performanceMetrics = {
+    getTiming: () => {
+      const timing = performance.timing;
+      return {
+        pageLoad: timing.loadEventEnd - timing.navigationStart,
+        domReady: timing.domContentLoadedEventEnd - timing.navigationStart,
+        firstPaint: performance.getEntriesByType('paint')[0].startTime
+      };
+    }
+  };
+
+  window.addEventListener('load', () => {
+    const metrics = performanceMetrics.getTiming();
+    console.log('Performance Metrics:', metrics);
+  });
+
+  let lastScroll = 0;
+  const nav = document.querySelector('.nav');
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      nav.classList.add('hidden');
+    } else {
+      nav.classList.remove('hidden');
+    }
+    
+    lastScroll = currentScroll;
+    
+    const scrollPercent = (currentScroll / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.querySelector('.scroll-progress').style.width = `${scrollPercent}%`;
+  });
+
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    navLinks.classList.toggle('active');
+    
+    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && 
+        !menuToggle.contains(e.target) && 
+        navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.classList.add('loading');
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      btn.classList.remove('loading');
+      showToast('Formulaire envoyé avec succès!', 'success');
+    });
+  });
+
+  document.querySelectorAll('a').forEach(link => {
+    if (!link.closest('.nav')) {
+      link.addEventListener('mouseenter', () => {
+        link.style.transition = 'all 0.3s ease';
+        link.style.transform = 'translateY(-2px)';
+      });
+      
+      link.addEventListener('mouseleave', () => {
+        link.style.transform = 'translateY(0)';
+      });
+    }
+  });
+  
+  const fadeElements = document.querySelectorAll('.fade-in');
+  fadeElements.forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, 100 * index);
+  });
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HubSpot Solutions PME",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web-based",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1000"
+    }
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(structuredData);
+  document.head.appendChild(script);
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+  
+  document.querySelector('.cta-btn').addEventListener('click', () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  });
+
+  const revealOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    revealOnScroll.observe(el);
+  });
+});
+</script>
+
+</body>
+</html>
